@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  portainer:
+    #image: portainer/portainer  # 官方版
+    image: 6053537/portainer  # 汉化版
+    container_name: portainer
+    restart: always
+    ports:
+      - "9090:9000"
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
