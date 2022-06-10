@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  rabbit:
+    image: rabbitmq:3.9.20-management
+    hostname: rabbit
+    container_name: "rabbitmq_3.9.20"
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=123123
+    volumes:
+      - ./data:/var/lib/rabbitmq
+      - ./log:/var/log/rabbitmq     #创建log目录的时候基于777权限不然会报错
