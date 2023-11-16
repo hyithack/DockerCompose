@@ -1,0 +1,14 @@
+version: '3'  
+services:  
+  kuboard:  
+    image: eipwork/kuboard:v3  
+    restart: unless-stopped  
+    container_name: kuboard  
+    ports:  
+      - 80:80/tcp  
+      - 10081:10081/tcp  
+    environment:  
+      - KUBOARD_ENDPOINT=http://192.168.0.81:80  #服务器内网地址即可
+      - KUBOARD_AGENT_SERVER_TCP_PORT=10081  
+    volumes:  
+      - /root/kuboard-data:/data
